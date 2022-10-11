@@ -3,7 +3,7 @@ package com.airthcompany.gradecalculator;
 import android.widget.Button;
 
 public class RowData {
-
+//nbkhbkj
     private int id;
     private String name;
     private int score;
