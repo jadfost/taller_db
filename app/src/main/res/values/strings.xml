@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TallerDB</string>
+    <string name="hello_world">Bienvenido!</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="add_item">Añadir Materia</string>
+    <string name="title_activity_initial">Actividad inicial</string>
+    <string name="title_activity_courses">Cursos Actividad</string>
+    <string name="add_course">Agregar Materia</string>
+    <string name="promedio">promedio</string>
+    <string name="promedio_actual">Promedio Actual</string>
+
+</resources>
