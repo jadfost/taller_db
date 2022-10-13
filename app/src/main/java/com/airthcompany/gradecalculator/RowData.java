@@ -17,7 +17,7 @@ public class RowData {
         this.weight = weight;
     }
 
-    // captadores
+    // captadores - mtraer
 
     public int getId(){  return id;    }
     public String getName(){  return name;  }
@@ -25,7 +25,7 @@ public class RowData {
     public int getWeight(){ return weight; }
 
 
-    // Setters/Cambiadores
+    // /Cambiadores-establecer
 
     public void setId(int id){ this.id = id; }
     public void setName(String name){ this.name = name; }

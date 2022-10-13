@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.airthcompany.gradecalculator">
+    package="com.airthcompany.gradecalculator" >
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/bplus_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".activity_home"
             android:exported="false" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".CoursesActivity"
             android:exported="true"
-            android:label="Taller-DB">
+            android:label="Taller-DB" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

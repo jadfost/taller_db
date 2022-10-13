@@ -1,10 +1,11 @@
 package com.airthcompany.gradecalculator;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -22,7 +23,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 
-public class CoursesActivity extends ActionBarActivity {
+public class CoursesActivity extends AppCompatActivity {
 
     public DataBaseAdapter myDb;
 
@@ -82,7 +83,7 @@ public class CoursesActivity extends ActionBarActivity {
         if(cursor.moveToFirst()){
             do{
 
-                final String tableName = cursor.getString(cursor.getColumnIndex("name"));
+                @SuppressLint("Range") final String tableName = cursor.getString(cursor.getColumnIndex("name"));
 
                 final LinearLayout innerLayout = new LinearLayout(this);
                 innerLayout.setOrientation(LinearLayout.HORIZONTAL);
