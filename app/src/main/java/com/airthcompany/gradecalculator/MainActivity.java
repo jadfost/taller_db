@@ -32,8 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
     HashMap<String, Button> hypoButtons;
 
-    float averageGrade, targetGrade , currentTotalWeight, currentSumAndProduct, targetTotalWeight;
+    float averageGrade, targetGrade , currentTotalWeight, currentSumAndProduct, targetTotalWeight, dimelo;
     float targetNeeded;
+
+    int Cont=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                         Editable scoreValue = scoreInput.getText();
                         Editable maxValue = maxInput.getText();
                         int ye = 0;
+                        Cont=Cont+1;
                         //Editable weightValue = weightInput.getText();
 
                         Long newId;
@@ -145,11 +148,11 @@ public class MainActivity extends AppCompatActivity {
                 final float grade;
                 have = targetTotal = 0;
                 if(score != NO_INPUT && max != NO_INPUT) {
-                    grade = (score / (float) max);
+                    grade = (float) score;
                     currentTotalWeight += weight;
                     targetTotalWeight += weight;
-                    currentSumAndProduct += grade;
-                    averageGrade = currentSumAndProduct * 100;
+                    currentSumAndProduct += grade ;
+                    averageGrade = (currentSumAndProduct / Cont);
 
                 } else {
 
@@ -204,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
                         nameButtonAlert.setNeutralButton("Borrar", new DialogInterface.OnClickListener(){
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                Cont = Cont - 1;
                                 myDb.deleteRow(id, databaseTable);
                                 layout.removeView(row);
 
@@ -379,6 +382,7 @@ public class MainActivity extends AppCompatActivity {
 
         targetTotalWeight = targetTotalWeight - currentTotalWeight;
         currentTotalWeight = currentSumAndProduct = 0;
+        dimelo =0;
 
         if(cursor.moveToFirst()){
             do{
@@ -391,9 +395,9 @@ public class MainActivity extends AppCompatActivity {
                 final float grade;
 
                 if(score != NO_INPUT && max != NO_INPUT) {
-                    grade = (score / (float) max);
+                    grade = (score);
                     currentSumAndProduct += grade;
-                    averageGrade = (float) (currentSumAndProduct*100);
+                    averageGrade = (currentSumAndProduct / Cont);
 
                 }
             } while(cursor.moveToNext());
@@ -405,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
     private void displayAverage(){
 
 
-        averageGrade = currentSumAndProduct;
+        averageGrade = currentSumAndProduct / Cont;
 
         TextView average = (TextView) findViewById(R.id.actual_average);
         @SuppressLint("DefaultLocale") String msg = String.format("%.1f", averageGrade);
@@ -422,7 +426,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder targetAlert = new AlertDialog.Builder(view.getContext());
 
         TextView average = (TextView) findViewById(R.id.target_average);
-        if (averageGrade>=30.0){
+        if (averageGrade>=3.0){
             String msg = "APROVANDO";
             average.setText(msg);
             updateHypoButtons();
